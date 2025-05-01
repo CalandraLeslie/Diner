@@ -1,0 +1,587 @@
+/* 1950's Diner Website - Main Stylesheet */
+
+/* Variables */
+:root {
+    /* Main colors */
+    --cherry-red: rgb(200, 30, 50);
+    --mint-green: rgb(150, 220, 200);
+    --butter-yellow: rgb(255, 230, 130);
+    --sky-blue: rgb(150, 200, 230);
+    
+    /* Accent colors */
+    --cream: rgb(245, 240, 230);
+    --charcoal: rgb(50, 50, 50);
+    --chrome: rgb(200, 200, 210);
+    --bubblegum: rgb(255, 180, 200);
+    
+    /* Font families */
+    --font-retro: 'Rockwell', 'Courier New', serif;
+    --font-script: 'Brush Script MT', cursive;
+    --font-regular: 'Roboto', Arial, sans-serif;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-regular);
+    background-color: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-retro);
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cherry-red);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--bubblegum);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-family: var(--font-retro);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.primary-btn {
+    background-color: var(--cherry-red);
+    color: white;
+    border: 2px solid var(--cherry-red);
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    color: var(--cherry-red);
+}
+
+.secondary-btn {
+    background-color: var(--mint-green);
+    color: var(--charcoal);
+    border: 2px solid var(--mint-green);
+}
+
+.secondary-btn:hover {
+    background-color: transparent;
+    color: var(--mint-green);
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(to right, var(--cherry-red), var(--charcoal));
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.neon-sign {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.neon-sign h1 {
+    font-family: var(--font-script);
+    color: var(--butter-yellow);
+    text-shadow: 0 0 10px rgba(255, 230, 130, 0.7), 
+                 0 0 20px rgba(255, 230, 130, 0.5),
+                 0 0 30px rgba(255, 230, 130, 0.3);
+    font-size: 3rem;
+    margin-bottom: 0;
+    animation: neonFlicker 3s infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 19%, 21%, 59%, 61%, 90%, 92%, 100% {
+        text-shadow: 0 0 10px rgba(255, 230, 130, 0.7), 
+                     0 0 20px rgba(255, 230, 130, 0.5),
+                     0 0 30px rgba(255, 230, 130, 0.3);
+    }
+    20%, 60%, 91% {
+        text-shadow: none;
+    }
+}
+
+.neon-sign .tagline {
+    color: var(--sky-blue);
+    font-style: italic;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 1.5rem;
+}
+
+nav a {
+    color: var(--cream);
+    font-family: var(--font-retro);
+    font-weight: bold;
+    position: relative;
+}
+
+nav a:hover, nav a.active {
+    color: var(--butter-yellow);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--butter-yellow);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+/* Main Content */
+main {
+    margin-top: 150px;
+}
+
+section {
+    padding: 4rem 2rem;
+    scroll-margin-top: 150px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('../assets/images/diner-hero.jpg') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background-color: rgba(50, 50, 50, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--butter-yellow);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Menu Section */
+.menu-section {
+    background-color: var(--cream);
+    text-align: center;
+}
+
+.menu-section h2 {
+    color: var(--cherry-red);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    margin: 0 10px 10px;
+    border: none;
+    background-color: var(--chrome);
+    color: var(--charcoal);
+    font-family: var(--font-retro);
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background-color: var(--cherry-red);
+    color: white;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item-info {
+    padding: 1.5rem;
+}
+
+.menu-item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item-title h3 {
+    color: var(--cherry-red);
+    margin: 0;
+}
+
+.menu-item-price {
+    color: var(--charcoal);
+    font-weight: bold;
+}
+
+/* Reservations Section */
+.reservations-section {
+    background-color: var(--sky-blue);
+    padding: 4rem 2rem;
+}
+
+.reservations-section h2 {
+    text-align: center;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+}
+
+#reservation-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#reservation-form button {
+    display: block;
+    margin: 2rem auto 0;
+}
+
+/* About Section */
+.about-section {
+    padding: 4rem 2rem;
+    background-color: var(--mint-green);
+}
+
+.about-section h2 {
+    text-align: center;
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+}
+
+.about-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Celebrities Section */
+.celebrities-section {
+    background-color: var(--butter-yellow);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.celebrities-section h2 {
+    color: var(--charcoal);
+    margin-bottom: 2rem;
+}
+
+.celebrity-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cherry-red) var(--cream);
+}
+
+.celebrity-card {
+    min-width: 300px;
+    scroll-snap-align: center;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.celebrity-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.celebrity-info {
+    padding: 1.5rem;
+}
+
+.celebrity-info h3 {
+    color: var(--cherry-red);
+    margin-bottom: 0.5rem;
+}
+
+.celebrity-info .visit-date {
+    color: var(--charcoal);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background-color: var(--cream);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.reviews-section h2 {
+    color: var(--cherry-red);
+    margin-bottom: 2rem;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.reviewer-info h4 {
+    margin: 0;
+    color: var(--charcoal);
+}
+
+.reviewer-info .review-date {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.review-stars {
+    color: gold;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--charcoal);
+    color: var(--cream);
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
+.footer-content > div {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+    color: var(--butter-yellow);
+    font-family: var(--font-script);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-hours h4, .footer-social h4 {
+    color: var(--mint-green);
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--cream);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--butter-yellow);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .neon-sign h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0.5rem 0;
+    }
+    
+    main {
+        margin-top: 180px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+}

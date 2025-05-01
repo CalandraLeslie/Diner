@@ -1,0 +1,19 @@
+{
+  "name": "rubys-diner",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "placeholders": "node create-placeholders.js"
+  },
+  "devDependencies": {
+    "vite": "^4.5.0"
+  },
+  "notes": {
+    "main.js": "Change this in main.js if needed",
+    "BASE_URL": "/images/" 
+  }
+}
