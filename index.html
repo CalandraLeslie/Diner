@@ -8,13 +8,59 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add these to your head section for the 1950s fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="app">
       <!-- Content will be dynamically loaded by JavaScript -->
-      <div style="text-align: center; padding: 50px; font-family: Arial;">
-        <p>Loading Ruby's Diner...</p>
-      </div>
+      <section id="home" class="hero-section">
+        <div class="retro-diner-layout">
+          <div class="diner-showcase">
+            <div class="diner-interior">
+              <img src="https://images.unsplash.com/photo-1563897539633-7374c276c212?w=800&auto=format&fit=crop" alt="Ruby's Diner Interior" class="interior-image">
+              <div class="checkerboard-border"></div>
+            </div>
+            
+            <div class="diner-specialty">
+              <div class="specialty-header">
+                <div class="neon-sign-small">Today's Special</div>
+              </div>
+              <div class="specialty-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&auto=format&fit=crop" alt="Today's Special - Classic Cheeseburger" class="special-image">
+                <div class="specialty-details">
+                  <h3>Classic Cheeseburger & Shake</h3>
+                  <p class="specialty-price">Just $10.99</p>
+                  <p class="specialty-desc">Our famous burger with a vanilla shake</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="diner-welcome">
+            <div class="welcome-text">
+              <h2 class="retro-heading">Ruby's 1950s Diner</h2>
+              <div class="retro-separator">
+                <span class="star-divider">★</span>
+                <span class="line-divider"></span>
+                <span class="star-divider">★</span>
+              </div>
+              <p>Serving classic American comfort food since 1952. Enjoy authentic burgers, hand-spun milkshakes, and homemade pies in our vintage atmosphere with chrome accents, red vinyl booths, and the best jukebox in town!</p>
+              
+              <div class="diner-hours-callout">
+                <div class="hours-title">Open Daily</div>
+                <div class="hours-times">11am - 9pm Mon-Thu • 11am - 11pm Fri-Sat • 10am - 8pm Sun</div>
+              </div>
+              
+              <div class="cta-buttons">
+                <a href="#menu" class="btn primary-btn">View Our Menu</a>
+                <a href="#reservations" class="btn accent-btn">Book a Table</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
