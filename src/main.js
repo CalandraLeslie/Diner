@@ -49,7 +49,7 @@ const menuItems = {
     { name: "Veggie Supreme", price: "$9.99", description: "House-made black bean patty with avocado, sprouts, and chipotle mayo", image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=500&auto=format&fit=crop" }
   ],
   shakes: [
-    { name: "Classic Vanilla", price: "$5.99", description: "Hand-spun vanilla shake with whipped cream and a cherry", image: "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500&auto=format&fit=crop" },
+    { name: "Classic Vanilla", price: "$5.99", description: "Hand-spun vanilla shake with whipped cream and a cherry", image: "https://www.foodandwine.com/thmb/aYv9IwIyM4EKLL0o7W1CUSfjXzU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Vanilla-Milkshake-FT-MAG-RECIPE-0325-4ad53abc27a74f7687e510cc17d28d1d.jpg" },
     { name: "Chocolate Malt", price: "$6.49", description: "Rich chocolate shake with malt powder and chocolate shavings", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop" },
     { name: "Strawberry Dream", price: "$6.49", description: "Fresh strawberry shake with real strawberry pieces", image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=500&auto=format&fit=crop" },
     { name: "Peanut Butter Blast", price: "$7.49", description: "Creamy peanut butter and chocolate shake with crushed peanuts", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop" }
@@ -57,14 +57,14 @@ const menuItems = {
   sides: [
     { name: "Classic Fries", price: "$3.99", description: "Crispy golden fries with our secret seasoning", image: "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&auto=format&fit=crop" },
     { name: "Onion Rings", price: "$4.99", description: "Beer-battered onion rings with dipping sauce", image: "https://images.unsplash.com/photo-1639024471283-03518883512d?w=500&auto=format&fit=crop" },
-    { name: "Chili Cheese Fries", price: "$6.49", description: "Fries topped with our house-made chili and melted cheese", image: "https://images.unsplash.com/photo-1627935722051-b21c875fca37?w=500&auto=format&fit=crop" },
-    { name: "Coleslaw", price: "$2.99", description: "Creamy classic slaw made fresh daily", image: "https://images.unsplash.com/photo-1611938694705-35a0ba01afc3?w=500&auto=format&fit=crop" }
+    { name: "Chili Cheese Fries", price: "$6.49", description: "Fries topped with our house-made chili and melted cheese", image: "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/08/chili-cheese-fries.jpg?im=AspectCrop=(16,9);Resize,width=742;" },
+    { name: "Coleslaw", price: "$2.99", description: "Creamy classic slaw made fresh daily", image: "https://www.marthastewart.com/thmb/tMn2vgNT4mbpdbeoZokzunNPHmQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MSL-1118954-Simple-Coleslaw-step1-0823-cb5768b1eeee420baa788b1f387016fc.jpg" }
   ],
   desserts: [
-    { name: "Apple Pie", price: "$4.99", description: "Home-made apple pie with ice cream", image: "https://images.unsplash.com/photo-1621743478914-cc8a68d76208?w=500&auto=format&fit=crop" },
-    { name: "Banana Split", price: "$7.99", description: "Classic split with three ice cream flavors and toppings", image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500&auto=format&fit=crop" },
+    { name: "Apple Pie", price: "$4.99", description: "Home-made apple pie with ice cream", image: "https://cakesbymk.com/wp-content/uploads/2024/11/Template-Size-for-Blog-5.jpg" },
+    { name: "Banana Split", price: "$7.99", description: "Classic split with three ice cream flavors and toppings", image: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Banana_split_1.jpg" },
     { name: "Sundae", price: "$5.99", description: "Hot fudge sundae with whipped cream and a cherry", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop" },
-    { name: "Root Beer Float", price: "$4.99", description: "Creamy vanilla ice cream in old-fashioned root beer", image: "https://images.unsplash.com/photo-1595214685413-5be14ea8e88e?w=500&auto=format&fit=crop" }
+    { name: "Root Beer Float", price: "$4.99", description: "Creamy vanilla ice cream in old-fashioned root beer", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMQpBkv183DOZ_eCIa-1dSiPszlE6obzGnUw&s" }
   ]
 };
 
@@ -78,10 +78,10 @@ const staffMembers = [
 
 // Celebrity visitors with direct image URLs (using public domain images)
 const celebrities = [
-  { name: "Elvis Presley", year: "1956", description: "Visited after a show and loved our peanut butter burger!", image: "https://upload.wikimedia.org/wikipedia/commons/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg" },
+  { name: "Elvis Presley", year: "1956", description: "Visited after a show and loved our peanut butter burger!", image: "https://images.photowall.com/products/79541/jailhouse-rock-elvis-presley-2.jpg?h=699&q=85" },
   { name: "Marilyn Monroe", year: "1955", description: "Stopped in for a strawberry shake after filming", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/800px-Marilyn_Monroe_in_1952.jpg" },
-  { name: "James Dean", year: "1954", description: "Was a regular when filming nearby", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/James_Dean_-_publicity_-_early.JPG/640px-James_Dean_-_publicity_-_early.JPG" },
-  { name: "Buddy Holly", year: "1957", description: "Played an impromptu set on our jukebox", image: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Buddy_Holly_Brunswick_publicity.jpg" }
+  { name: "James Dean", year: "1954", description: "Was a regular when filming nearby", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/James_Dean_-_publicity_-_early.JPG/250px-James_Dean_-_publicity_-_early.JPG" },
+  { name: "Buddy Holly", year: "1957", description: "Played an impromptu set on our jukebox", image: "https://www.tshaonline.org/images/handbook/entries/HH/holley-charles-hardin.jpg" }
 ];
 
 // Testimonials
@@ -233,7 +233,7 @@ function initializeApp() {
                         <option value="3">3 people</option>
                         <option value="4">4 people</option>
                         <option value="5">5 people</option>
-                        <option value="6">6+ people</option>
+                        <option value="6+">6+ people</option>
                       </select>
                     </div>
                     <div class="form-group">
