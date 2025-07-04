@@ -1,10 +1,33 @@
+/**
+ * Image Download Utility for Ruby's Diner Website
+ * 
+ * This Node.js script downloads real images from various sources to replace placeholders.
+ * It organizes images by category and handles downloads from multiple providers:
+ * - Unsplash for food and staff photos
+ * - Wikimedia Commons for celebrity photos (public domain)
+ * - Direct URLs for specific diner atmosphere images
+ * 
+ * Usage: node download-images.cjs
+ * 
+ * Note: This uses CommonJS (.cjs) format for compatibility with older Node.js setups
+ */
+
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// Configuration
+/**
+ * Configuration for image downloads
+ * Defines directory structure and image sources
+ */
 const baseDir = path.join(__dirname, 'retro-diner-website', 'assets', 'images');
+
+/**
+ * Image sets organized by category
+ * Each category has its own directory and set of images with URLs
+ */
 const imageSets = {
+  // Menu category - food photos from Unsplash
   menu: {
     dir: 'menu',
     images: [
@@ -26,6 +49,7 @@ const imageSets = {
       { name: 'dessert4.jpg', url: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1257&auto=format&fit=crop' },
     ]
   },
+  // Staff category - professional headshots from Unsplash
   staff: {
     dir: 'staff',
     images: [
@@ -35,10 +59,11 @@ const imageSets = {
       { name: 'tommy.jpg', url: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=987&auto=format&fit=crop' }
     ]
   },
+  // Celebrity category - public domain historical photos
   celebrities: {
     dir: 'celebrities',
     images: [
-      // Using public domain celebrity images
+      // Using public domain celebrity images from Wikimedia Commons
       { name: 'elvis.jpg', url: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg' },
       { name: 'marilyn.jpg', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Marilyn_Monroe_in_1952.jpg' },
       { name: 'james.jpg', url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/James_Dean_in_East_of_Eden_trailer_2.jpg/800px-James_Dean_in_East_of_Eden_trailer_2.jpg' },

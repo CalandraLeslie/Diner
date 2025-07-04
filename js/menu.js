@@ -1,5 +1,20 @@
-// Menu data
+/**
+ * Ruby's Diner Menu System
+ * 
+ * This module manages the dynamic menu display with categorized items.
+ * Features include:
+ * - Tabbed navigation between menu categories (burgers, milkshakes, sides, desserts)
+ * - Dynamic content loading with fallback images
+ * - Responsive menu item cards with pricing and descriptions
+ * - Error handling for missing images
+ */
+
+/**
+ * Menu data structure containing all food items organized by category
+ * Each item includes: name, price, description, and image path
+ */
 const menuData = {
+    // Burger menu items - featuring classic and specialty burgers
     burgers: [
         {
             name: "Classic Cheeseburger",
@@ -26,6 +41,7 @@ const menuData = {
             image: "./assets/images/veggie-burger.jpg"
         }
     ],
+    // Milkshake menu items - classic flavors and specialty combinations
     milkshakes: [
         {
             name: "Vanilla Dream",
@@ -52,6 +68,7 @@ const menuData = {
             image: "./assets/images/pb-shake.jpg"
         }
     ],
+    // Side dishes - appetizers and accompaniments
     sides: [
         {
             name: "Crispy Fries",
@@ -78,6 +95,7 @@ const menuData = {
             image: "./assets/images/chili-fries.jpg"
         }
     ],
+    // Dessert menu items - sweet treats and classic diner desserts
     desserts: [
         {
             name: "Apple Pie",
@@ -106,44 +124,58 @@ const menuData = {
     ]
 };
 
-// Function to load menu items
+/**
+ * Main function to initialize the menu system
+ * Sets up tab navigation and displays the default menu category
+ * 
+ * @export - Available for import by other modules
+ */
 export function loadMenuItems() {
+    // Get DOM elements for menu container and tab buttons
     const menuItemsContainer = document.querySelector('.menu-items');
     const tabButtons = document.querySelectorAll('.tab-btn');
     
-    // First, display the default category (burgers)
+    // Display the default category (burgers) when page loads
     displayMenuCategory('burgers');
     
-    // Add event listeners to tab buttons
+    // Set up event listeners for tab navigation
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
+            // Remove active state from all tab buttons
             tabButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Add active class to clicked button
+            // Add active state to the clicked button
             button.classList.add('active');
             
-            // Display the corresponding menu category
+            // Get the category from the button's data attribute and display it
             const category = button.dataset.category;
             displayMenuCategory(category);
         });
     });
     
-    // Function to display menu items for a category
+    /**
+     * Internal function to display menu items for a specific category
+     * Clears existing items and populates with new category items
+     * 
+     * @param {string} category - The menu category to display (burgers, milkshakes, etc.)
+     */
     function displayMenuCategory(category) {
-        // Clear current menu items
+        // Clear the current menu items from the container
         menuItemsContainer.innerHTML = '';
         
-        // Get items for the selected category
+        // Get items for the selected category (fallback to empty array if category not found)
         const items = menuData[category] || [];
         
-        // Create and append menu item elements
+        // Create and append DOM elements for each menu item
         items.forEach(item => {
+            // Create the main container for each menu item
             const menuItem = document.createElement('div');
             menuItem.className = 'menu-item';
             
+            // Create fallback image URL in case the main image fails to load
             const fallbackImage = `https://placehold.co/400x300/e2e8f0/1e293b?text=${item.name}`;
             
+            // Build the HTML structure for the menu item
             menuItem.innerHTML = `
                 <img src="${item.image}" alt="${item.name}" onerror="this.src='${fallbackImage}'">
                 <div class="menu-item-info">
@@ -155,6 +187,7 @@ export function loadMenuItems() {
                 </div>
             `;
             
+            // Add the completed menu item to the container
             menuItemsContainer.appendChild(menuItem);
         });
     }

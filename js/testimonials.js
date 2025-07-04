@@ -1,4 +1,19 @@
-// Testimonial data
+/**
+ * Ruby's Diner Customer Testimonials System
+ * 
+ * This module manages the display of customer reviews and testimonials.
+ * Features include:
+ * - Customer review cards with photos, names, and dates
+ * - Star rating system (1-5 stars with filled/empty states)
+ * - Fallback images for customer photos
+ * - Responsive review card layout
+ * - Font Awesome icons for star ratings
+ */
+
+/**
+ * Customer testimonial data
+ * Each review contains: name, date, rating (1-5), customer image, and review text
+ */
 const testimonials = [
     {
         name: "Sarah Johnson",
@@ -44,25 +59,40 @@ const testimonials = [
     }
 ];
 
+/**
+ * Loads and displays customer testimonials with star ratings
+ * Creates review cards with customer information and star-based ratings
+ * 
+ * @export - Available for import by other modules
+ */
 export function loadTestimonials() {
+    // Get the container element for review cards
     const testimonialsContainer = document.querySelector('.reviews-container');
     
+    // Create and append a card for each customer review
     testimonials.forEach(review => {
         const reviewCard = document.createElement('div');
         reviewCard.className = 'review-card';
         
+        // Create fallback image using the customer's first initial
         const fallbackImage = `https://placehold.co/100x100/e2e8f0/1e293b?text=${review.name.charAt(0)}`;
         
-        // Create stars based on rating
+        /**
+         * Generate star rating display using Font Awesome icons
+         * Creates filled stars for the rating and empty stars for the remainder
+         */
         let stars = '';
         for (let i = 0; i < 5; i++) {
             if (i < review.rating) {
+                // Filled star for ratings within the customer's score
                 stars += '<i class="fas fa-star"></i>';
             } else {
+                // Empty star for remaining positions
                 stars += '<i class="far fa-star"></i>';
             }
         }
         
+        // Build the review card HTML structure
         reviewCard.innerHTML = `
             <div class="review-header">
                 <img src="${review.image}" alt="${review.name}" class="reviewer-image" onerror="this.src='${fallbackImage}'">
@@ -75,6 +105,7 @@ export function loadTestimonials() {
             <p>${review.text}</p>
         `;
         
+        // Add the completed review card to the container
         testimonialsContainer.appendChild(reviewCard);
     });
 }

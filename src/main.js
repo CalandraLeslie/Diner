@@ -1,47 +1,72 @@
-// Main entry point for Ruby's 1950s Diner
+/**
+ * Ruby's 1950s Diner - Alternative Main Entry Point
+ * 
+ * This is an alternative implementation of the main application file.
+ * It appears to be a more comprehensive version that includes:
+ * - Direct image URL handling
+ * - Canvas-based placeholder generation
+ * - Complete menu data with real image URLs
+ * - Embedded styling and functionality
+ * 
+ * Note: This file is referenced in index.html but may be part of a different build setup.
+ */
 
-// Create default images if they don't exist
+/**
+ * Creates a default placeholder image using HTML5 Canvas
+ * Used as fallback when remote images fail to load
+ * 
+ * @param {string} name - Text to display on the placeholder image
+ * @returns {Image} - Image element with error handling
+ */
 function createDefaultImage(name) {
   const img = new Image();
+  
+  // Handle image loading errors by generating a canvas placeholder
   img.onerror = function() {
-    // Create a canvas to generate a simple placeholder
+    // Create a canvas element for drawing the placeholder
     const canvas = document.createElement('canvas');
     canvas.width = 300;
     canvas.height = 200;
     const ctx = canvas.getContext('2d');
     
-    // Fill background
+    // Fill background with light gray
     ctx.fillStyle = '#f5f5f5';
     ctx.fillRect(0, 0, 300, 200);
     
-    // Add text
+    // Add centered text with diner branding color
     ctx.fillStyle = '#c82032';
     ctx.font = 'bold 24px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(name, 150, 100);
     
-    // Create a data URL
+    // Convert canvas to data URL for use as image source
     const dataUrl = canvas.toDataURL('image/jpeg');
     
-    // Use this as the default
     return dataUrl;
   };
   
   return img;
 }
 
-// Default fallback images
+/**
+ * Fallback image URLs from Unsplash for different content types
+ * These are used when specific images are not available
+ */
 const defaultImages = {
   food: "https://images.unsplash.com/photo-1562059390-a761a084768e?w=500&auto=format&fit=crop",
   staff: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop",
   celebrity: "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?w=500&auto=format&fit=crop"
 };
 
-// Import necessary styles
+// Import the main stylesheet for the application
 import './styles.css';
 
-// Updated menu items with direct image URLs
+/**
+ * Complete menu data with direct image URLs from Unsplash
+ * This implementation uses real food photography instead of placeholder images
+ */
 const menuItems = {
+  // Burger menu items with high-quality food photography
   burgers: [
     { name: "Classic Cheeseburger", price: "$8.99", description: "1/3 lb beef patty with American cheese, lettuce, tomato, and our secret sauce", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop" },
     { name: "The Elvis", price: "$10.99", description: "1/2 lb beef patty with peanut butter, bacon, and banana on a brioche bun", image: "https://images.unsplash.com/photo-1550317138-10000687a72b?w=500&auto=format&fit=crop" },
